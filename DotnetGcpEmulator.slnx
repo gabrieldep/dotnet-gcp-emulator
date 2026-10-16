@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/GcpStorageEmulator/GcpStorageEmulator.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/GcpStorageEmulator.Tests/GcpStorageEmulator.Tests.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,22 @@
+services:
+  gcs-emulator:
+    build: .
+    image: dotnet-gcp-emulator:latest
+    container_name: gcs-emulator
+    # Host port is configurable (EMULATOR_PORT); the container always listens on 8080.
+    ports:
+      - "${EMULATOR_PORT:-8080}:8080"
+    environment:
+      # Port the app binds inside the container.
+      Emulator__Port: "8080"
+      # Where objects are persisted (mapped to the named volume below).
+      Emulator__StorageRoot: "/data"
+      # Flip to "true" to log every request (useful for debugging SDK traffic).
+      Emulator__LogRequests: "${EMULATOR_LOG_REQUESTS:-false}"
+    volumes:
+      # Named volume keeps buckets/objects across restarts.
+      # Swap for a bind mount (e.g. ./.gcs-data:/data) to inspect files on the host.
+      - gcs-data:/data
+
+volumes:
+  gcs-data:

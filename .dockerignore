@@ -1,0 +1,23 @@
+# Build artifacts
+**/bin/
+**/obj/
+artifacts/
+.artifacts/
+
+# Local emulator data
+**/.gcs-data/
+**/gcs-data/
+
+# VCS & IDE
+.git/
+.gitignore
+.vs/
+.vscode/
+*.user
+
+# Tests are not needed in the runtime image
+tests/
+
+# Docs
+*.md
+LICENSE
